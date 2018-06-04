@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
+        body{
+            background-image: url("hh.jpg");
+            background-size: 100%,100%;
+        }
         #bgm{
             width: 200px;
             height: 200px;
@@ -46,8 +50,18 @@
     audio.play();
     audio.loop="loop";
     document.getElementById("bgm").addEventListener("click",music);
-    function music(){
-        audio.pause();
+   var isPlaying=true;
+
+    function music() {
+        if (isPlaying) {
+            audio.pause();
+            document.getElementById("bgm").style.backgroundImage = "url('stopped.gif')";
+        }
+        else {
+            audio.play();
+            document.getElementById("bgm").style.backgroundImage = "url('music.gif')";
+        }
+        isPlaying = !isPlaying;
     }
 </script>
 </html>
